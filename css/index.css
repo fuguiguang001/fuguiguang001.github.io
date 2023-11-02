@@ -1,0 +1,174 @@
+:root {
+  --border-clolr: #dcdfe6;
+  --border-left-color: #e6e6e6;
+  --title-color: #409eff;
+}
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+.topology-context {
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  position: relative;
+  background: #fff url(../image/backimg.png);
+}
+.main {
+  width: 100%;
+  height: 100%;
+}
+.main .headerBox {
+  width: 100%;
+  height: 60px;
+  border-bottom: 1px solid var(--border-clolr);
+  box-shadow: 0px 4px 13px 0px rgba(73, 84, 89, 0.21);
+  display: flex;
+}
+.main .headerBox .title {
+  font-size: 22px;
+  width: 240px;
+  height: 60px;
+  line-height: 60px;
+  text-align: center;
+  color: var(--title-color);
+}
+.main .headerBox .function {
+  display: flex;
+  align-items: center;
+}
+.main .headerBox .function i {
+  cursor: pointer;
+  margin-right: 14px;
+}
+.main .headerBox .function i.active {
+  color: var(--title-color);
+}
+.main .headerBox .function input {
+  border: 1px solid #ccc;
+  width: 140px;
+  height: 22px;
+  border-radius: 3px;
+  outline: none;
+  padding-left: 10px;
+  font-size: 12px;
+  color: #ff7800;
+  margin-right: 14px;
+}
+.main .headerBox .function button {
+  margin-right: 12px;
+}
+.main .leftBox {
+  width: 160px;
+  height: calc(100vh - 60px);
+  float: left;
+}
+.main .leftBox .listNav {
+  width: 100%;
+}
+.main .leftBox .listNav h2 {
+  padding-left: 30px;
+  line-height: 42px;
+  height: 42px;
+  border-bottom: 1px solid var(--border-left-color);
+  font-size: 14px;
+  cursor: pointer;
+  font-weight: normal;
+}
+.main .leftBox .listNav .listCon {
+  width: 100%;
+  padding: 10px 0px;
+}
+.main .leftBox .listNav .listCon .listNode {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.main .leftBox .listNav .listCon .listNode img {
+  width: 30px;
+  height: 30px;
+  margin-bottom: 5px;
+}
+.main .leftBox .listNav .listCon .listNode span {
+  color: #666;
+  font-size: 12px;
+}
+.main .leftBox .listNav .listCon .listNode.active span {
+  color: #ff7800;
+}
+.main .rightBox {
+  width: calc(100% - 200px);
+  height: calc(100vh - 60px);
+  float: left;
+  padding: 20px;
+}
+.main .rightBox #topologyBody {
+  flex: 1;
+  height: 800px;
+  position: relative;
+}
+.main .rightBox #topologyBody .menuMain {
+  display: flex;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+.main .rightBox #topologyBody .menuMain #deviceText {
+  width: 120px;
+  height: 40px;
+  resize: none;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  display: none;
+  position: absolute;
+  outline: none;
+  color: #ff7800;
+}
+.main .rightBox #topologyBody .menuMain .menuBox {
+  width: 150px;
+  border: 1px solid #b7c8f6;
+  background-color: #fff;
+  position: absolute;
+  display: none;
+}
+.main .rightBox #topologyBody .menuMain .menuBox .menu-item {
+  width: 100%;
+  height: 36px;
+  line-height: 36px;
+  font-size: 12px;
+  padding-left: 10px;
+  cursor: pointer;
+  border-bottom: 1px dotted #cccccc;
+}
+.main .rightBox #topologyBody .menuMain .menuBox .menu-item:last-child {
+  border-bottom: none;
+}
+.main .rightBox #topologyBody .menuMain .menuBox .menu-item:hover {
+  color: #ff7800;
+}
+.main .rightBox #topologyBody .menuMain .menuBox .menu-item input {
+  width: 90%;
+  height: 24px;
+  border: 1px solid #ff7800;
+  border-radius: 3px;
+}
+.main .rightBox .rightInfo {
+  width: 200px;
+}
+#changeTextInput {
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  width: 120px;
+  height: 32px;
+  z-index: 9999;
+  display: none;
+}
+.cytoscape-navigator img[src=""],
+.cytoscape-navigator img:not([src]) {
+  opacity: 0;
+  border: none;
+  visibility: hidden;
+  max-width: none;
+}
