@@ -1,23 +1,14 @@
+
 document.addEventListener('DOMContentLoaded', function () {
 
   var cy = window.cy = cytoscape({
     container: document.getElementById('cy'),
 
-    layout: {
-      name: 'concentric',
-      concentric: function (n) {
-        return n.id() === 'j' ? 200 : 0;
-      },
-      levelWidth: function (nodes) {
-        return 100;
-      },
-      minNodeSpacing: 100
-    },
-
-    style: [{
-        selector: 'node[name]',
+    style: [
+      {
+        selector: 'node',
         style: {
-          'content': 'data(name)'
+          'content': 'data(id)'
         }
       },
 
@@ -27,162 +18,63 @@ document.addEventListener('DOMContentLoaded', function () {
           'curve-style': 'bezier',
           'target-arrow-shape': 'triangle'
         }
-      },
-
-      // some style for the extension
-
-      {
-        selector: '.eh-handle',
-        style: {
-          'background-color': 'red',
-          'width': 12,
-          'height': 12,
-          'shape': 'ellipse',
-          'overlay-opacity': 0,
-          'border-width': 12, // makes the handle easier to hit
-          'border-opacity': 0
-        }
-      },
-
-      {
-        selector: '.eh-hover',
-        style: {
-          'background-color': 'red'
-        }
-      },
-
-      {
-        selector: '.eh-source',
-        style: {
-          'border-width': 2,
-          'border-color': 'red'
-        }
-      },
-
-      {
-        selector: '.eh-target',
-        style: {
-          'border-width': 2,
-          'border-color': 'red'
-        }
-      },
-
-      {
-        selector: '.eh-preview, .eh-ghost-edge',
-        style: {
-          'background-color': 'red',
-          'line-color': 'red',
-          'target-arrow-color': 'red',
-          'source-arrow-color': 'red'
-        }
-      },
-
-      {
-        selector: '.eh-ghost-edge.eh-preview-active',
-        style: {
-          'opacity': 0
-        }
       }
     ],
 
     elements: {
-      nodes: [{
-          data: {
-            id: 'j',
-            name: 'Jerry'
-          }
-        },
-        {
-          data: {
-            id: 'e',
-            name: 'Elaine'
-          }
-        },
-        {
-          data: {
-            id: 'k',
-            name: 'Kramer'
-          }
-        },
-        {
-          data: {
-            id: 'g',
-            name: 'George'
-          }
-        }
+      nodes: [
+        { data: { id: 'a' } },
+        { data: { id: 'b' } }
       ],
-      edges: [{
-          data: {
-            source: 'j',
-            target: 'e'
-          }
-        },
-        {
-          data: {
-            source: 'j',
-            target: 'k'
-          }
-        },
-        {
-          data: {
-            source: 'j',
-            target: 'g'
-          }
-        },
-        {
-          data: {
-            source: 'e',
-            target: 'j'
-          }
-        },
-        {
-          data: {
-            source: 'e',
-            target: 'k'
-          }
-        },
-        {
-          data: {
-            source: 'k',
-            target: 'j'
-          }
-        },
-        {
-          data: {
-            source: 'k',
-            target: 'e'
-          }
-        },
-        {
-          data: {
-            source: 'k',
-            target: 'g'
-          }
-        },
-        {
-          data: {
-            source: 'g',
-            target: 'j'
-          }
-        }
+      edges: [
+        { data: { id: 'ab', source: 'a', target: 'b' } }
       ]
+    },
+
+    layout: {
+      name: 'grid'
     }
   });
 
-  var eh = cy.edgehandles({
-    snap: false
+  var a = cy.getElementById('a');
+  var b = cy.getElementById('b');
+  var ab = cy.getElementById('ab');
+
+  var makeDiv = function(text){
+    var div = document.createElement('div');
+
+    div.classList.add('popper-div');
+
+    div.innerHTML = text;
+
+    document.body.appendChild( div );
+
+    return div;
+  };
+
+  var popperA = a.popper({
+    content: function(){ return makeDiv('Sticky position div'); }
   });
 
-  document.querySelector('#draw-on').addEventListener('click', function () {
-    eh.enableDrawMode();
+  var updateA = function(){
+    popperA.update();
+  };
+
+  a.on('position', updateA);
+  cy.on('pan zoom resize', updateA);
+
+  var popperB = b.popper({
+    content: function(){ return makeDiv('One time position div'); }
   });
 
-  document.querySelector('#draw-off').addEventListener('click', function () {
-    eh.disableDrawMode();
+  var popperAB = ab.popper({
+    content: function(){ return makeDiv('Sticky position div'); }
   });
 
-  document.querySelector('#start').addEventListener('click', function () {
-    eh.start(cy.$('node:selected'));
-  });
+  var updateAB = function(){
+    popperAB.update();
+  };
 
+  ab.connectedNodes().on('position', updateAB);
+  cy.on('pan zoom resize', updateAB);
 });

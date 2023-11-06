@@ -61,6 +61,7 @@
 .main .leftBox {
   width: 160px;
   height: calc(100vh - 60px);
+  box-shadow: 0px 4px 13px 0px rgba(73, 84, 89, 0.21);
   float: left;
 }
 .main .leftBox .listNav {
@@ -171,4 +172,10 @@
   border: none;
   visibility: hidden;
   max-width: none;
+}
+.nodeBtnBox {
+  font-size: 12px;
+  color: #409eff;
+  top: 12px;
+  cursor: pointer;
 }

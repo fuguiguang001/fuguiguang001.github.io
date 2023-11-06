@@ -1375,9 +1375,9 @@
       }
   
       if (warnSupported) {
-        console.warn(msg);
+        // console.warn(msg);
       } else {
-        console.log(msg);
+        // console.log(msg);
   
         if (traceSupported) {
           console.trace();
@@ -33353,7 +33353,7 @@
       var containerStyle = r.data.canvasContainer.style;
       r.data.canvasContainer.style[tapHlOffAttr] = tapHlOffStyle;
       containerStyle.position = 'relative';
-      containerStyle.zIndex = '0';
+      containerStyle.zIndex = '6';
       containerStyle.overflow = 'hidden';
       var container = options.cy.container();
       container.appendChild(r.data.canvasContainer);

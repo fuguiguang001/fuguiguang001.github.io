@@ -1963,7 +1963,7 @@
             edgeTypeInfo: "edgeType", //the name of the field that has the edge type, retrieved from edge.data(), can be a function
             groupEdgesOfSameTypeOnCollapse: false,
             allowNestedEdgeCollapse: true,
-            zIndex: 999 // z-index value of the canvas in which cue ımages are drawn
+            zIndex: 4 // z-index value of the canvas in which cue ımages are drawn
           };
     
           // If opts is not 'get' that is it is a real options object then initilize the extension
