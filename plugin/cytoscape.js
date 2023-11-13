@@ -27151,10 +27151,20 @@
        * 自定义拖拽添加节点功能
        */
       r.registerBinding(containerWindow, 'dragover', function mousemoveHandler(e) {
+        var capture = r.hoverData.capture;
+  
+        if (!capture && !eventInContainer(e)) {
+          return;
+        }
         e.preventDefault();
         return false;
       }, false);
       r.registerBinding(containerWindow, 'drop', function mousemoveHandler(e) {
+        var capture = r.hoverData.capture;
+  
+        if (!capture && !eventInContainer(e)) {
+          return;
+        }
         var gpos = [e.clientX, e.clientY];
         var pos = r.projectIntoViewport(gpos[0], gpos[1]);
         var nears = r.findNearestElements(pos[0], pos[1], true, false);
