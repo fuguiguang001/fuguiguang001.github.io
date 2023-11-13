@@ -105,8 +105,10 @@
   padding: 20px;
 }
 .main .rightBox #topologyBody {
-  flex: 1;
-  height: 800px;
+  width: 95%;
+  height: 95%;
+  border: 1px dashed #ccc;
+  margin: 0 auto;
   position: relative;
 }
 .main .rightBox #topologyBody .menuMain {
@@ -156,6 +158,7 @@
 }
 .main .rightBox .rightInfo {
   width: 200px;
+  display: none;
 }
 #changeTextInput {
   position: fixed;
