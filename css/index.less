@@ -1,207 +1,307 @@
 :root {
-  --border-clolr: #dcdfe6;
-  --border-left-color: #e6e6e6;
-  --title-color: #409eff;
+    --border-clolr: #dcdfe6;
+    --border-left-color: #e6e6e6;
+    --title-color: #409eff;
 }
 
 * {
-  margin: 0;
-  box-sizing: border-box;
+    margin: 0;
+    box-sizing: border-box;
 }
 
 // Jtopo 相关样式
 .topology-context {
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  position: relative;
-  background: #fff url(../image/backimg.png);
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    position: relative;
+    background: #fff url(../image/backimg.png);
 }
 
 
 .main {
-  width: 100%;
-  height: 100%;
-  // display: flex;
-  // flex-wrap: wrap;
-
-  // 头部导航
-  .headerBox {
     width: 100%;
-    height: 60px;
-    border-bottom: 1px solid var(--border-clolr);
-    box-shadow: 0px 4px 13px 0px rgba(73, 84, 89, 0.21);
-    display: flex;
-    .title {
-      font-size: 22px;
-      width: 240px;
-      height: 60px;
-      line-height: 60px;
-      text-align: center;
-      color: var(--title-color);
-    }
-    .function {
-      display: flex;
-      align-items: center;
-      i {
-        cursor: pointer;
-        margin-right: 14px;
-        &.active {
-          color: var(--title-color);
-        }
-      }
-      input {
-        border: 1px solid #ccc;
-        width: 140px;
-        height: 22px;
-        border-radius: 3px;
-        outline: none;
-        padding-left: 10px;
-        font-size: 12px;
-        color: #ff7800;
-        margin-right: 14px;
-      }
-      button {
-        margin-right: 12px;
-      }
-    }
-  }
+    height: 100%;
+    // display: flex;
+    // flex-wrap: wrap;
 
-  // 左侧区域
-  .leftBox {
-    width: 160px;
-    height: calc(100vh - 60px);
-    box-shadow: 0px 4px 13px 0px rgba(73, 84, 89, 0.21);
-    float: left;
-    .listNav {
-      width: 100%;
-      h2 {
-        padding-left: 30px;
-        line-height: 42px;
-        height: 42px;
-        border-bottom: 1px solid var(--border-left-color);
-        font-size: 14px;
-        cursor: pointer;
-        font-weight: normal;
-      }
-      .listCon {
+    // 头部导航
+    .headerBox {
         width: 100%;
-        padding: 10px 0px;
-        .listNode {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          margin-bottom: 10px;
-          img {
-            width: 30px;
-            height: 30px;
-            margin-bottom: 5px;
-          }
-          span {
-            color: #666;
-            font-size: 12px;
-          }
-          &.active {
-            span {
-              color: #ff7800;
-            }
-          }
-        }
-      }
-    }
-  }
-
-  // 右侧区域
-  .rightBox {
-    width: calc(100% - 200px);
-    height: calc(100vh - 60px);
-    float: left;
-    padding: 20px;
-    #topologyBody {
-      width: 95%;
-      height: 95%;
-      border: 1px dashed #ccc;
-      margin: 0 auto;
-      position: relative;
-      .menuMain {
+        height: 60px;
+        border-bottom: 1px solid var(--border-clolr);
+        box-shadow: 0px 4px 13px 0px rgba(73, 84, 89, 0.21);
         display: flex;
-        position: absolute;
-        left: 0px;
-        top: 0px;
-        #deviceText {
-          width: 120px;
-          height: 40px;
-          resize: none;
-          border: 1px solid #ccc;
-          border-radius: 3px;
-          display: none;
-          position: absolute;
-          outline: none;
-          color: #ff7800;
+
+        .title {
+            font-size: 22px;
+            width: 240px;
+            height: 60px;
+            line-height: 60px;
+            text-align: center;
+            color: var(--title-color);
         }
-        .menuBox {
-          width: 150px;
-          border: 1px solid #b7c8f6;
-          background-color: #fff;
-          position: absolute;
-          display: none;
-          .menu-item {
-            width: 100%;
-            height: 36px;
-            line-height: 36px;
-            font-size: 12px;
-            padding-left: 10px;
-            cursor: pointer;
-            border-bottom: 1px dotted #cccccc;
-            &:last-child {
-              border-bottom: none;
+
+        .function {
+            display: flex;
+            align-items: center;
+
+            i {
+                cursor: pointer;
+                margin-right: 14px;
+
+                &.active {
+                    color: var(--title-color);
+                }
             }
-            &:hover {
-              color: #ff7800;
-            }
+
             input {
-              width: 90%;
-              height: 24px;
-              border: 1px solid #ff7800;
-              border-radius: 3px;
+                border: 1px solid #ccc;
+                width: 140px;
+                height: 22px;
+                border-radius: 3px;
+                outline: none;
+                padding-left: 10px;
+                font-size: 12px;
+                color: #ff7800;
+                margin-right: 14px;
             }
-          }
+
+            button {
+                margin-right: 12px;
+            }
         }
-      }
     }
-    .rightInfo {
-      width: 200px;
-      display: none;
+
+    // 左侧区域
+    .leftBox {
+        width: 160px;
+        height: calc(100vh - 60px);
+        box-shadow: 0px 4px 13px 0px rgba(73, 84, 89, 0.21);
+        float: left;
+
+        .listNav {
+            width: 100%;
+
+            h2 {
+                padding-left: 30px;
+                line-height: 42px;
+                height: 42px;
+                border-bottom: 1px solid var(--border-left-color);
+                font-size: 14px;
+                cursor: pointer;
+                font-weight: normal;
+            }
+
+            .listCon {
+                width: 100%;
+                padding: 10px 0px;
+
+                .listNode {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    margin-bottom: 10px;
+
+                    img {
+                        width: 30px;
+                        height: 30px;
+                        margin-bottom: 5px;
+                    }
+
+                    span {
+                        color: #666;
+                        font-size: 12px;
+                    }
+
+                    &.active {
+                        span {
+                            color: #ff7800;
+                        }
+                    }
+                }
+            }
+        }
     }
-  }
+
+    // 右侧区域
+    .rightBox {
+        width: calc(100% - 200px);
+        height: calc(100vh - 60px);
+        float: left;
+        padding: 20px;
+
+        #topologyBody {
+            width: 95%;
+            height: 95%;
+            border: 1px dashed #ccc;
+            margin: 0 auto;
+            position: relative;
+
+            .menuMain {
+                display: flex;
+                position: absolute;
+                left: 0px;
+                top: 0px;
+
+                #deviceText {
+                    width: 120px;
+                    height: 40px;
+                    resize: none;
+                    border: 1px solid #ccc;
+                    border-radius: 3px;
+                    display: none;
+                    position: absolute;
+                    outline: none;
+                    color: #ff7800;
+                }
+
+                .menuBox {
+                    width: 150px;
+                    border: 1px solid #b7c8f6;
+                    background-color: #fff;
+                    position: absolute;
+                    display: none;
+
+                    .menu-item {
+                        width: 100%;
+                        height: 36px;
+                        line-height: 36px;
+                        font-size: 12px;
+                        padding-left: 10px;
+                        cursor: pointer;
+                        border-bottom: 1px dotted #cccccc;
+
+                        &:last-child {
+                            border-bottom: none;
+                        }
+
+                        &:hover {
+                            color: #ff7800;
+                        }
+
+                        input {
+                            width: 90%;
+                            height: 24px;
+                            border: 1px solid #ff7800;
+                            border-radius: 3px;
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
 
 // 修改文案
 #changeTextInput {
-  position: fixed;
-  left: 0px;
-  top: 0px;
-  width: 120px;
-  height: 32px;
-  z-index: 9999;
-  display: none;
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    width: 120px;
+    height: 32px;
+    z-index: 9999;
+    display: none;
 }
 
 // 鹰眼展示
 .cytoscape-navigator {
-  img[src=""],img:not([src]){
-    opacity: 0;
-    border: none;
-    visibility: hidden;
-    max-width: none;
-  }
+
+    img[src=""],
+    img:not([src]) {
+        opacity: 0;
+        border: none;
+        visibility: hidden;
+        max-width: none;
+    }
 }
 
 
 // 开机 关机 运行 暂停 等
 .nodeBtnBox {
-  font-size: 12px;
-  color: #409eff;
-  top: 12px;
-  cursor: pointer;
+    font-size: 12px;
+    color: #409eff;
+    top: 12px;
+    cursor: pointer;
+}
+
+#attributeBox {
+    width: 280px;
+    height: 600px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    position: fixed;
+    overflow: hidden;
+    right: 100px;
+    top: 60px;
+    z-index: 100;
+    .box_drag {
+        height: 40px;
+        width: 100%;
+        line-height: 40px;
+        text-align: center;
+        border-radius: 4px;
+        user-select: none;
+        background: #fff;
+        color: #69c0ff;
+        cursor: move;
+    }
+    #attributeContent {
+        width: 100%;
+        height: calc(100% - 40px);
+        overflow-y: auto;
+        background-color: #f7f7f7;
+        .el-collapse-item__header {
+            padding-left: 12px;
+            height: 38px;
+            line-height: 38px;
+        }
+        .nodeList {
+            display: flex;
+            align-items: center;
+            padding-right: 10px;
+            margin-bottom: 10px;
+            .nodeName {
+                width: 30%;
+                float: left;
+                line-height: 32px;
+                text-align: right;
+            }
+            .nodeCon {
+                width: 70%;
+                display: flex;
+                align-items: center;
+                .el-input__inner {
+                    height: 32px;
+                    line-height: 32px;
+                }
+            }
+            .customKey {
+                width: 30%;
+                padding-right: 10px;
+                text-align: right;
+            }
+            .customVal {
+                width: 60%;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                overflow: hidden;
+            }
+            .separate {
+                color: var(--border-clolr);
+                padding: 0px 5px;
+            }
+            &.customInput {
+                padding-left: 10px;
+            }
+        }
+        .funButton {
+            text-align: center;
+            color: var(--title-color);
+        }
+        i {
+            cursor: pointer;
+            font-size: 16px;
+        }
+    }
 }

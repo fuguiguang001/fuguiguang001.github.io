@@ -156,10 +156,6 @@
   border: 1px solid #ff7800;
   border-radius: 3px;
 }
-.main .rightBox .rightInfo {
-  width: 200px;
-  display: none;
-}
 #changeTextInput {
   position: fixed;
   left: 0px;
@@ -181,4 +177,84 @@
   color: #409eff;
   top: 12px;
   cursor: pointer;
+}
+#attributeBox {
+  width: 280px;
+  height: 600px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  position: fixed;
+  overflow: hidden;
+  right: 100px;
+  top: 60px;
+  z-index: 100;
+}
+#attributeBox .box_drag {
+  height: 40px;
+  width: 100%;
+  line-height: 40px;
+  text-align: center;
+  border-radius: 4px;
+  user-select: none;
+  background: #fff;
+  color: #69c0ff;
+  cursor: move;
+}
+#attributeBox #attributeContent {
+  width: 100%;
+  height: calc(100% - 40px);
+  overflow-y: auto;
+  background-color: #f7f7f7;
+}
+#attributeBox #attributeContent .el-collapse-item__header {
+  padding-left: 12px;
+  height: 38px;
+  line-height: 38px;
+}
+#attributeBox #attributeContent .nodeList {
+  display: flex;
+  align-items: center;
+  padding-right: 10px;
+  margin-bottom: 10px;
+}
+#attributeBox #attributeContent .nodeList .nodeName {
+  width: 30%;
+  float: left;
+  line-height: 32px;
+  text-align: right;
+}
+#attributeBox #attributeContent .nodeList .nodeCon {
+  width: 70%;
+  display: flex;
+  align-items: center;
+}
+#attributeBox #attributeContent .nodeList .nodeCon .el-input__inner {
+  height: 32px;
+  line-height: 32px;
+}
+#attributeBox #attributeContent .nodeList .customKey {
+  width: 30%;
+  padding-right: 10px;
+  text-align: right;
+}
+#attributeBox #attributeContent .nodeList .customVal {
+  width: 60%;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+#attributeBox #attributeContent .nodeList .separate {
+  color: var(--border-clolr);
+  padding: 0px 5px;
+}
+#attributeBox #attributeContent .nodeList.customInput {
+  padding-left: 10px;
+}
+#attributeBox #attributeContent .funButton {
+  text-align: center;
+  color: var(--title-color);
+}
+#attributeBox #attributeContent i {
+  cursor: pointer;
+  font-size: 16px;
 }

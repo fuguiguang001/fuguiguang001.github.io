@@ -216,15 +216,17 @@
         function updateDataOrStyleCyHandler(ev) {
             setTimeout(function () {
                 var target = ev.target;
-                var param = $$find(_params.slice().reverse(), function (x) { return target.is(x.query); });
-                if (param && !target.removed()) {
-                    _lc.addOrUpdateElem(target.id(), param, {
-                        position: getNodePosition(target),
-                        data: target.data()
-                    });
-                }
-                else {
-                    _lc.removeElemById(target.id());
+                if(target.is != undefined) {
+                    var param = $$find(_params.slice().reverse(), function (x) { return target.is(x.query); });
+                    if (param && !target.removed()) {
+                        _lc.addOrUpdateElem(target.id(), param, {
+                            position: getNodePosition(target),
+                            data: target.data()
+                        });
+                    }
+                    else {
+                        _lc.removeElemById(target.id());
+                    }
                 }
             }, 0);
         }
